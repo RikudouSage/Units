@@ -1,0 +1,8 @@
+parameters:
+  treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    - '#.+? function call_user_func expects callable.+? array\(class-string(?:\|object)?, .+?\) given.+#'
+    - '#Binary operation ".{1,1}" between .+BigNumber and .+BigNumber results in an error.#'
+    - '#Binary operation ".{1,1}" between .+BigNumber and [0-9]+ results in an error.#'
+    - '#Binary operation ".{1,1}" between .+Unit and .+Unit results in an error.#'
+    - '#Cannot cast .+BigNumber to (?:int|float|bool|string).#'

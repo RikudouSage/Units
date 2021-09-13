@@ -1,0 +1,23 @@
+{
+  "require": {
+    "php": "^7.4",
+    "lisachenko/z-engine": "^0.8.1",
+    "ext-bcmath": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rikudou\\Units\\": "src/"
+    },
+    "files": [
+      "src/bootstrap.php"
+    ]
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.1",
+    "phpstan/phpstan": "^0.12.99"
+  },
+  "scripts": {
+    "fixer": "php-cs-fixer fix --verbose --allow-risky=yes",
+    "phpstan": "phpstan analyse --level max src"
+  }
+}

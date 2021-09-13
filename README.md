@@ -261,7 +261,7 @@ var_dump($number > new BigNumber(3)); // true
 
 ## String Casting
 
-When a unit is casted to string, the value and unit is printed:
+When a unit is cast to a string, the value and unit is printed:
 
 ```php
 <?php

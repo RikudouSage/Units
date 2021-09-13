@@ -87,6 +87,10 @@ These standard mathematical operations are supported on `BigNumber`s:
  - division
  - exponentiation
 
+## Installation
+
+`composer require rikudou/units`
+
 ## Operations with units
 
 All items of the same type can be freely added and subtracted. Additionally all units can be added, subtracted, multiplied

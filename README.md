@@ -51,6 +51,12 @@ var_dump((float) $value); // float(5)
 var_dump((string) $value); // string(1) "5"
 var_dump((bool) $value); // bool(true)
 
+$veryBigValue = $meter * PHP_INT_MAX;
+$value = $veryBigValue->getValue();
+var_dump((string) $value); // on 64 bit correctly prints string(20) "46116860184273879035"
+var_dump((int) $value); // prints int(9223372036854775807) which is the value of PHP_INT_MAX on 64 bits
+var_dump((float) $value); // prints float(4.6116860184274E+19) which is more or less correct but not very precise
+
 // BigNumbers follow standard bool logic
 $number = new BigNumber(0);
 var_dump((bool) $number); // bool(false)

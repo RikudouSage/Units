@@ -19,7 +19,7 @@ var_dump($result->getValue()); // dumps object of Rikudou\Units\Number\BigNumber
 You need to have ffi enabled and bcmath extension installed.
 
 The units are always in the unit that's first in the operation, meaning if you wanted the result in feet you would
-just reverse them:
+just reverse them (or convert them, more on that below):
 
 ```php
 <?php

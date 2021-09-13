@@ -1,4 +1,7 @@
 {
+  "name": "rikudou/units",
+  "license": "MIT",
+  "description": "Unit converter and calculator",
   "require": {
     "php": "^7.4",
     "lisachenko/z-engine": "^0.8.1",

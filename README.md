@@ -207,6 +207,10 @@ var_dump($converter->convert($celsius, Fahrenheit::class)); // 212 fahrenheits
 - cubic meter
 - cubic kilometer
 - cubic foot
+- litre
+- millilitre
+- centilitre
+- decilitre
 
 ### Temperature
 

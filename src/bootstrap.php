@@ -18,41 +18,55 @@ use Rikudou\Units\Unit\Length\Yard;
 use Rikudou\Units\Unit\Temperature\Celsius;
 use Rikudou\Units\Unit\Temperature\Fahrenheit;
 use Rikudou\Units\Unit\Temperature\Kelvin;
+use Rikudou\Units\Unit\Volume\Centilitre;
 use Rikudou\Units\Unit\Volume\CubicCentimeter;
 use Rikudou\Units\Unit\Volume\CubicFoot;
 use Rikudou\Units\Unit\Volume\CubicKilometer;
 use Rikudou\Units\Unit\Volume\CubicMeter;
 use Rikudou\Units\Unit\Volume\CubicMillimeter;
+use Rikudou\Units\Unit\Volume\Decilitre;
+use Rikudou\Units\Unit\Volume\Litre;
+use Rikudou\Units\Unit\Volume\Millilitre;
 use ZEngine\Core;
 use ZEngine\Reflection\ReflectionClass as ZEngineReflectionClass;
 
 Core::init();
 bcscale((int) ini_get('precision'));
 
-(new ZEngineReflectionClass(BigNumber::class))->installExtensionHandlers();
+$classes = [
+    BigNumber::class,
+    // area
+    Acre::class,
+    SquareCentimeter::class,
+    SquareFoot::class,
+    SquareKilometer::class,
+    SquareMeter::class,
+    SquareMillimeter::class,
+    // length
+    Centimeter::class,
+    Foot::class,
+    Inch::class,
+    Kilometer::class,
+    Meter::class,
+    Mile::class,
+    Millimeter::class,
+    Yard::class,
+    // temperature
+    Celsius::class,
+    Fahrenheit::class,
+    Kelvin::class,
+    // volume
+    Centilitre::class,
+    CubicCentimeter::class,
+    CubicFoot::class,
+    CubicKilometer::class,
+    CubicMeter::class,
+    CubicMillimeter::class,
+    Decilitre::class,
+    Litre::class,
+    Millilitre::class,
+];
 
-(new ZEngineReflectionClass(Acre::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(SquareCentimeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(SquareFoot::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(SquareKilometer::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(SquareMeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(SquareMillimeter::class))->installExtensionHandlers();
-
-(new ZEngineReflectionClass(Centimeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Foot::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Inch::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Kilometer::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Meter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Mile::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Millimeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Yard::class))->installExtensionHandlers();
-
-(new ZEngineReflectionClass(Celsius::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Fahrenheit::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(Kelvin::class))->installExtensionHandlers();
-
-(new ZEngineReflectionClass(CubicCentimeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(CubicFoot::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(CubicKilometer::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(CubicMeter::class))->installExtensionHandlers();
-(new ZEngineReflectionClass(CubicMillimeter::class))->installExtensionHandlers();
+foreach ($classes as $class) {
+    (new ZEngineReflectionClass($class))->installExtensionHandlers();
+}

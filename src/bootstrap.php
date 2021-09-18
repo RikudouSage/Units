@@ -18,6 +18,12 @@ use Rikudou\Units\Unit\Length\Yard;
 use Rikudou\Units\Unit\Temperature\Celsius;
 use Rikudou\Units\Unit\Temperature\Fahrenheit;
 use Rikudou\Units\Unit\Temperature\Kelvin;
+use Rikudou\Units\Unit\Time\Day;
+use Rikudou\Units\Unit\Time\Hour;
+use Rikudou\Units\Unit\Time\Microsecond;
+use Rikudou\Units\Unit\Time\Millisecond;
+use Rikudou\Units\Unit\Time\Minute;
+use Rikudou\Units\Unit\Time\Second;
 use Rikudou\Units\Unit\Volume\Centilitre;
 use Rikudou\Units\Unit\Volume\CubicCentimeter;
 use Rikudou\Units\Unit\Volume\CubicFoot;
@@ -55,6 +61,13 @@ $classes = [
     Celsius::class,
     Fahrenheit::class,
     Kelvin::class,
+    // time
+    Day::class,
+    Hour::class,
+    Microsecond::class,
+    Millisecond::class,
+    Minute::class,
+    Second::class,
     // volume
     Centilitre::class,
     CubicCentimeter::class,

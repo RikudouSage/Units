@@ -15,6 +15,9 @@ use Rikudou\Units\Unit\Length\Meter;
 use Rikudou\Units\Unit\Length\Mile;
 use Rikudou\Units\Unit\Length\Millimeter;
 use Rikudou\Units\Unit\Length\Yard;
+use Rikudou\Units\Unit\Speed\KilometersPerHour;
+use Rikudou\Units\Unit\Speed\MetersPerSecond;
+use Rikudou\Units\Unit\Speed\MilesPerHour;
 use Rikudou\Units\Unit\Temperature\Celsius;
 use Rikudou\Units\Unit\Temperature\Fahrenheit;
 use Rikudou\Units\Unit\Temperature\Kelvin;
@@ -37,7 +40,15 @@ use ZEngine\Core;
 use ZEngine\Reflection\ReflectionClass as ZEngineReflectionClass;
 
 Core::init();
-bcscale((int) ini_get('precision'));
+
+if (ini_get('bcmath.scale')) {
+    $scale = ini_get('bcmath.scale');
+} elseif (ini_get('precision')) {
+    $scale = ini_get('precision');
+} else {
+    $scale = 30;
+}
+bcscale((int) $scale);
 
 $classes = [
     BigNumber::class,
@@ -57,6 +68,10 @@ $classes = [
     Mile::class,
     Millimeter::class,
     Yard::class,
+    // speed
+    KilometersPerHour::class,
+    MetersPerSecond::class,
+    MilesPerHour::class,
     // temperature
     Celsius::class,
     Fahrenheit::class,

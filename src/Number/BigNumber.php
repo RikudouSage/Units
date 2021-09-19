@@ -2,6 +2,8 @@
 
 namespace Rikudou\Units\Number;
 
+use Rikudou\Units\Exception\InvalidNumberException;
+use Rikudou\Units\Exception\UnsupportedCastType;
 use RuntimeException;
 use function setlocale;
 use ZEngine\ClassExtension\Hook\CastObjectHook;
@@ -69,8 +71,15 @@ final class BigNumber implements
                 return self::getDisplayString($object->value);
             case ReflectionValue::_IS_BOOL:
                 return (bool) $object->value;
+            case ReflectionValue::_IS_NUMBER:
+                $string = self::getDisplayString($object->value);
+                if (strpos($string, '.') !== false) {
+                    return (float) $string;
+                }
+
+                return (int) $string;
             default:
-                throw new RuntimeException("Unsupported cast type: {$type}");
+                throw new UnsupportedCastType("Unsupported cast type: {$type}");
         }
     }
 
@@ -106,7 +115,7 @@ final class BigNumber implements
         }
 
         if (!is_string($value)) {
-            throw new RuntimeException(sprintf(
+            throw new InvalidNumberException(sprintf(
                 'Unsupported value type: %s',
                 is_object($value) ? get_class($value) : gettype($value)
             ));

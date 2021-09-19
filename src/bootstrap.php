@@ -36,10 +36,10 @@ use Rikudou\Units\Unit\Volume\CubicMillimeter;
 use Rikudou\Units\Unit\Volume\Decilitre;
 use Rikudou\Units\Unit\Volume\Litre;
 use Rikudou\Units\Unit\Volume\Millilitre;
-use ZEngine\Core;
+use ZEngine\Core as ZEngineCore;
 use ZEngine\Reflection\ReflectionClass as ZEngineReflectionClass;
 
-Core::init();
+ZEngineCore::init();
 
 if (ini_get('bcmath.scale')) {
     $scale = ini_get('bcmath.scale');
